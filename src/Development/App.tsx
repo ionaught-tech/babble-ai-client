@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ColorPicker from "./ColorPicker";
 import { ChatBox } from "../ChatBox";
-import apiUrl, { socketUrl } from "./apiUrl";
 
 const App = () => {
   const [selectedColor, setSelectedColor] = useState("hsl(217, 54%, 0%)");
@@ -17,11 +16,9 @@ const App = () => {
         }}
       >
         <ChatBox
+          id="67e4de4ced2cb8956cea1fc9"
           theme={theme ? "light" : "dark"}
           primaryColor={selectedColor}
-          tokenKey="babble-ai-chat-token"
-          apiUrl={apiUrl}
-          socketUrl={socketUrl}
           themeName="light"
           disclaimerUrl=""
           liveAgent={{

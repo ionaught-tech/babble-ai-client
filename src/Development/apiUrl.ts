@@ -15,7 +15,7 @@ const serviceList = {
     ssl: false,
   },
 };
-const env = import.meta.env.VITE_ENVIRONMENT as keyof typeof serviceList;
+const env = "production";
 
 const getConfig = () => {
   const currentEnv = serviceList[env] || serviceList.production;

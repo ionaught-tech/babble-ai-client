@@ -1,3 +1,4 @@
+import baseApiUrl from "../Development/apiUrl";
 interface ApiCallParameters {
   url: string;
   method?: "POST" | "GET" | "PUT" | "DELETE";
@@ -12,8 +13,8 @@ const apiCall = async ({
   method = "GET",
   data = null,
   isFile = false,
-  token = "",
-  apiUrl,
+  token,
+  apiUrl = baseApiUrl,
 }: ApiCallParameters) => {
   const formData = new FormData();
 
@@ -46,7 +47,7 @@ export const postCall =
       method: "POST",
       data,
       token,
-      apiUrl,
+      apiUrl: apiUrl || baseApiUrl,
     });
 
 export const putCall =

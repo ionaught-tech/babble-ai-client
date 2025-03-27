@@ -37,7 +37,6 @@ const useMessageList = (
   socketUrl: string,
   canConnect: boolean | null,
   screenOpen: boolean,
-  tokenKey: string,
   liveAgent: LiveAgentType,
   onLiveAgentDataCollect?: (
     arg: any,
@@ -46,6 +45,7 @@ const useMessageList = (
   customMessageHandler?: (data: MessageData) => void,
   activeUser?: string,
 ) => {
+  const tokenKey = "chat-bot-token";
   const socketRef = useSocket(canConnect, tokenKey, socketUrl);
   const messageBoxRef = useRef<HTMLDivElement>(null);
   const [connectionStatus, setConnectionStatus] =

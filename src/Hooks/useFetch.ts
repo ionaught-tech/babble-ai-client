@@ -30,7 +30,7 @@ const useFetch = <D, E = void>(
   const [error, setError] = useState<E | DefaultError | null>(null);
   const [recall, setRecall] = useState(false);
   const [recallScale, setRecallScale] = useState(1);
-  const signalRef = useRef<boolean>();
+  const signalRef = useRef<boolean>(null);
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {

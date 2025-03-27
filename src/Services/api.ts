@@ -10,3 +10,5 @@ export const getRequiredFields = (token: string, apiUrl: string) =>
 export const getMessageHistory = (id: string, pageNumber: number) =>
   `/messages/${id}?page=${pageNumber}`;
 export const getAssetUrl = (url: string) => `${assetsUrl}/${url}`;
+export const getToken = (id: string) => `/get-token/chat-bot/${id}`;
+export const createUserCall = postCall("/user");

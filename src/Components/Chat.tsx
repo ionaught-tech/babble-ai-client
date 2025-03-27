@@ -17,10 +17,9 @@ import { Theme } from "../Utils/getTheme";
 import FreeTierPromotion from "./FreeTierPromotion";
 
 export type ChatPropsTypes = {
-  apiUrl: string;
-  socketUrl: string;
+  apiUrl?: string;
+  socketUrl?: string;
   canConnect?: boolean | null;
-  tokenKey: string;
   screenOpen?: boolean;
   onLinkOnClick?: OnLinkClick;
   customMessageHandler?: (data: MessageData) => void;
@@ -33,11 +32,10 @@ export type ChatPropsTypes = {
 };
 
 const Chat = ({
-  apiUrl,
-  socketUrl,
+  apiUrl = "https://api.babble-ai.com/api/v1",
+  socketUrl = "wss://api.babble-ai.com",
   canConnect = true,
   screenOpen = true,
-  tokenKey,
   onLinkOnClick,
   customMessageHandler,
   onConnectionStatusChange,
@@ -70,7 +68,6 @@ const Chat = ({
     socketUrl,
     canConnect,
     screenOpen,
-    tokenKey,
     liveAgent,
     onLiveAgentDataCollect,
     customMessageHandler,
@@ -152,13 +149,21 @@ const themeStyle = (theme: Theme) =>
     messageSection: {
       borderRadius: "0 0 16px 16px",
       display: "grid",
-      overflow: "hidden",
+      overflowY: "auto",
       position: "relative",
       gridTemplateRows: "1fr auto",
       maxHeight: "100%",
       maxWidth: "100%",
+      width: "100%",
       backgroundColor: theme.chatBg,
       height: "100%",
+      scrollbarWidth: "none",
+      msOverflowStyle: "none",
+    },
+    "&::-webkit-scrollbar": {
+      width: "0px",
+      height: "0px",
+      display: "none",
     },
     messageSectionBody: {
       boxSizing: "border-box",

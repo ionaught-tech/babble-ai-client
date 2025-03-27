@@ -39,7 +39,7 @@ const MessageInput = ({ canType, sendMessage }: PropsTypes) => {
           }}
           placeholder="Ask me..."
         />
-        <div style={style.button} title="send">
+        <div style={style.button} title="send" onClick={onSubmit}>
           <SendIcon />
         </div>
       </form>
